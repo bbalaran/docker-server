@@ -1,6 +1,7 @@
 var express = require('express'),
     http = require('http'),
-    redis = require('redis');
+    redis = require('redis'),
+    logger = require('.server/util/logger');
 
 var app = express();
 
@@ -17,5 +18,5 @@ app.get('/', function(req, res, next) {
 });
 
 http.createServer(app).listen(process.env.PORT || 8080, function() {
-  console.log('Listening on port ' + (process.env.PORT || 8080));
+  logger.log('Listening on port ' + (process.env.PORT || 8080));
 });
